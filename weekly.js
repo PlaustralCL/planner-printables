@@ -38,7 +38,7 @@ function populateMonthDates() {
 }
 
 window.onload = function () {
-  console.log("loaded!");
-  buildMonthTable();
-  populateMonthDates();
+  //console.log("loaded!");
+  //buildMonthTable();
+  //populateMonthDates();
 };
