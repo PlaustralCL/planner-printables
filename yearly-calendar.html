@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Yearly Calendar</title>
+    <style>
+      html {
+        max-width: 50%;
+        margin: auto;
+      }
+
+      .year-title {
+        text-align: center;
+      }
+
+      .year-container {
+        column-gap: 20px;
+        display: grid;
+        grid-template-columns: repeat(3, fit-content(150px));
+        justify-items: center;
+        width: 475px;
+        padding: 10px;
+        margin: auto;
+      }
+      .month-container {
+        text-align: center;
+      }
+      .button-container {
+        text-align: center;
+      }
+
+      .today {
+        background-color: pink;
+      }
+
+      button {
+        font-size: 1.2rem;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="year-title" id="year-title">Yearly Calendar</h1>
+
+    <div id="year" class="year-container">
+      <div class="month-container">
+        <table>
+          <thead>
+            <tr>
+              <th id="jan" colspan="7">Jan</th>
+            </tr>
+            <tr>
+              <th>S</th>
+              <th>M</th>
+              <th>T</th>
+              <th>W</th>
+              <th>T</th>
+              <th>F</th>
+              <th>S</th>
+            </tr>
+          </thead>
+          <tbody id="month0-body"></tbody>
+        </table>
+      </div>
+      <div class="month-container">
+        <table>
+          <thead>
+            <tr>
+              <th id="feb" colspan="7">February</th>
+            </tr>
+            <tr>
+              <th>S</th>
+              <th>M</th>
+              <th>T</th>
+              <th>W</th>
+              <th>T</th>
+              <th>F</th>
+              <th>S</th>
+            </tr>
+          </thead>
+          <tbody id="month1-body"></tbody>
+        </table>
+      </div>
+      <div class="month-container">
+        <table>
+          <thead>
+            <tr>
+              <th id="mar" colspan="7">March</th>
+            </tr>
+            <tr>
+              <th>S</th>
+              <th>M</th>
+              <th>T</th>
+              <th>W</th>
+              <th>T</th>
+              <th>F</th>
+              <th>S</th>
+            </tr>
+          </thead>
+          <tbody id="month2-body"></tbody>
+        </table>
+      </div>
+      <div class="month-container">
+        <table>
+          <thead>
+            <tr>
+              <th id="apr" colspan="7">April</th>
+            </tr>
+            <tr>
+              <th>S</th>
+              <th>M</th>
+              <th>T</th>
+              <th>W</th>
+              <th>T</th>
+              <th>F</th>
+              <th>S</th>
+            </tr>
+          </thead>
+          <tbody id="month3-body"></tbody>
+        </table>
+      </div>
+      <div class="month-container">
+        <table>
+          <thead>
+            <tr>
+              <th id="may" colspan="7">May</th>
+            </tr>
+            <tr>
+              <th>S</th>
+              <th>M</th>
+              <th>T</th>
+              <th>W</th>
+              <th>T</th>
+              <th>F</th>
+              <th>S</th>
+            </tr>
+          </thead>
+          <tbody id="month4-body"></tbody>
+        </table>
+      </div>
+      <div class="month-container">
+        <table>
+          <thead>
+            <tr>
+              <th id="jun" colspan="7">June</th>
+            </tr>
+            <tr>
+              <th>S</th>
+              <th>M</th>
+              <th>T</th>
+              <th>W</th>
+              <th>T</th>
+              <th>F</th>
+              <th>S</th>
+            </tr>
+          </thead>
+          <tbody id="month5-body"></tbody>
+        </table>
+      </div>
+      <div class="month-container">
+        <table>
+          <thead>
+            <tr>
+              <th id="jul" colspan="7">July</th>
+            </tr>
+            <tr>
+              <th>S</th>
+              <th>M</th>
+              <th>T</th>
+              <th>W</th>
+              <th>T</th>
+              <th>F</th>
+              <th>S</th>
+            </tr>
+          </thead>
+          <tbody id="month6-body"></tbody>
+        </table>
+      </div>
+      <div class="month-container">
+        <table>
+          <thead>
+            <tr>
+              <th id="aug" colspan="7">August</th>
+            </tr>
+            <tr>
+              <th>S</th>
+              <th>M</th>
+              <th>T</th>
+              <th>W</th>
+              <th>T</th>
+              <th>F</th>
+              <th>S</th>
+            </tr>
+          </thead>
+          <tbody id="month7-body"></tbody>
+        </table>
+      </div>
+      <div class="month-container">
+        <table>
+          <thead>
+            <tr>
+              <th id="sep" colspan="7">September</th>
+            </tr>
+            <tr>
+              <th>S</th>
+              <th>M</th>
+              <th>T</th>
+              <th>W</th>
+              <th>T</th>
+              <th>F</th>
+              <th>S</th>
+            </tr>
+          </thead>
+          <tbody id="month8-body"></tbody>
+        </table>
+      </div>
+      <div class="month-container">
+        <table>
+          <thead>
+            <tr>
+              <th id="oct" colspan="7">October</th>
+            </tr>
+            <tr>
+              <th>S</th>
+              <th>M</th>
+              <th>T</th>
+              <th>W</th>
+              <th>T</th>
+              <th>F</th>
+              <th>S</th>
+            </tr>
+          </thead>
+          <tbody id="month9-body"></tbody>
+        </table>
+      </div>
+      <div class="month-container">
+        <table>
+          <thead>
+            <tr>
+              <th id="nov" colspan="7">November</th>
+            </tr>
+            <tr>
+              <th>S</th>
+              <th>M</th>
+              <th>T</th>
+              <th>W</th>
+              <th>T</th>
+              <th>F</th>
+              <th>S</th>
+            </tr>
+          </thead>
+          <tbody id="month10-body"></tbody>
+        </table>
+      </div>
+      <div class="month-container">
+        <table>
+          <thead>
+            <tr>
+              <th id="dec" colspan="7">December</th>
+            </tr>
+            <tr>
+              <th>S</th>
+              <th>M</th>
+              <th>T</th>
+              <th>W</th>
+              <th>T</th>
+              <th>F</th>
+              <th>S</th>
+            </tr>
+          </thead>
+          <tbody id="month11-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button onclick="subtractYear()">&lt;</button>
+      <button onclick="addYear()">&gt;</button>
+    </div>
+
+    <script>
+      /* Build the table that will hold the dates for a month.
+       * The table will have 6 rows to ensure there are enough, but
+       * only 7 days are needed since that is constant.
+       */
+      function buildMonthTable(monthNum) {
+        const tableBodyId = `month${monthNum}-body`;
+        const tableBody = document.getElementById(tableBodyId);
+        for (let row = 1; row <= 6; row++) {
+          const newRow = document.createElement("tr");
+          newRow.id = `row${month}${row}`;
+          for (let col = 0; col < 7; col++) {
+            const newCell = document.createElement("td");
+            const cellId = `cell${month}${row}${col}`;
+            newCell.id = cellId;
+            newCell.textContent = cellId;
+            newRow.append(newCell);
+          }
+          tableBody.append(newRow);
+        }
+      }
+
+      /* Add the dates to a month table. If the date is the current day,
+       * the date is hightlighted.
+       * @param date {string} is a date representing a day in the month.
+       * This will be used to find the appropriate year and month.
+       */
+      function populateMonthDates(date) {
+        const today = new Date();
+        const year = date.getFullYear();
+        const month = date.getMonth();
+        const startDate = new Date(year, month, 1);
+
+        let workingDate = startDate;
+        for (let row = 1; row <= 6; row++) {
+          for (let cell = 0; cell < 7; cell++) {
+            const currentCell = document.getElementById(`cell${month}${row}${cell}`);
+            if (month === workingDate.getMonth() && workingDate.getDay() === cell) {
+              currentCell.textContent = workingDate.getDate();
+              // highlight the current date
+              if (
+                workingDate.getFullYear() === today.getFullYear() &&
+                workingDate.getMonth() === today.getMonth() &&
+                workingDate.getDate() === today.getDate()
+              ) {
+                currentCell.classList.add("today");
+              } else {
+                currentCell.classList.remove("today");
+              }
+
+              workingDate.setDate(workingDate.getDate() + 1);
+            } else {
+              currentCell.textContent = "";
+            }
+          }
+        }
+      }
+
+      /* Fills in the dates for the entire year
+       * @param year {string} the year that will be used for all the dates
+       */
+      function populateYear(year) {
+        const yearTitle = document.getElementById("year-title");
+        yearTitle.textContent = year;
+        for (month = 0; month < 12; month++) {
+          populateMonthDates(new Date(year, month, 1));
+        }
+      }
+
+      function addYear() {
+        const currentYear = document.getElementById("year-title").textContent;
+        populateYear(Number(currentYear) + 1);
+      }
+
+      function subtractYear() {
+        const currentYear = document.getElementById("year-title").textContent;
+        populateYear(Number(currentYear) - 1);
+      }
+
+      window.onload = function () {
+        const date = new Date();
+        const year = date.getFullYear();
+        const yearTitle = document.getElementById("year-title");
+        yearTitle.textContent = year;
+        for (month = 0; month < 12; month++) {
+          buildMonthTable(month);
+          populateMonthDates(new Date(year, month, 1));
+        }
+      };
+    </script>
+  </body>
+</html>

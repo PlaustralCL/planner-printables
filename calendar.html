@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Calendar</title>
+    <style>
+      .flex-container {
+        border: solid 1px red;
+        display: flex;
+            flex-wrap: wrap;
+        justify-content: space-evenly;
+        max-width: 5in;
+      }
+      .date {
+        color: blue;
+        width: 1in;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Calendar</h1>
+    <div id="calendar" class="flex-container"></div>
+
+    <script>
+      
+      function buildCalendar() {
+        container = document.getElementById("calendar");
+        for (let i = 0; i < 31; i++) {
+          const newDiv = document.createElement('div');
+          newDiv.classList.add("date");
+          container.append(newDiv, `${i}`)
+        }
+      }
+      
+      
+      
+      
+      window.onload = function () {
+        console.log("Everything is loaded!");
+        buildCalendar();
+      };
+    </script>
+  </body>
+</html>
