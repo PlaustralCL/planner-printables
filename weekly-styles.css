@@ -23,16 +23,21 @@ td:last-child {
 }
 */
 
-.row-normal:first-child {
+.weekly-line-large {
+  font-weight: bold;
+  height: 10mm;
+}
+
+.weekly-line:first-child {
   border-bottom: 1px solid black;
   /*height: 5.2mm;*/
 }
 
-.row-normal:last-child {
+.weekly-line:last-child {
   border-bottom: 1px solid black;
 }
 
-tr:has(.row-normal) {
+tr:has(.weekly-line) {
   height: 5.2mm;
 }
 
@@ -58,7 +63,10 @@ tr:has(.row-normal) {
   display: flex;
   justify-content: space-between;
   margin-bottom: 5mm;
+  width: 11in;
 }
+
+
 
 .month-container {
   max-width: 4rem;
