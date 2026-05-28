@@ -82,18 +82,21 @@ function setWeeklyDates() {
   for (i = 1; i < 8; i++) {
     const dayId = document.getElementById(`day${i % 7}`);
     currentValue = dayId.textContent;
-    dayId.textContent = `${workingDate.getDate()} ${currentValue}`;
+    dayName = currentValue.split(" ")[1];
+    dayId.textContent = `${workingDate.getDate()} ${dayName}`;
     workingDate.setDate(workingDate.getDate() + 1);
   }
 }
 
 function addWeek() {
-
+  //newStartDate = mondayFullDate;
+  mondayFullDate.setDate(mondayFullDate.getDate() + 6);
+  setMondayDate(mondayFullDate);
+  setMonthHeaders();
+  setWeeklyDates();
 }
 
-function subtractWeek() {
-
-}
+function subtractWeek() {}
 
 window.onload = function () {
   //console.log("loaded!");
