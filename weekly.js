@@ -55,7 +55,6 @@ function populateMonthDates() {
 }
 
 function setMondayDate(startDate) {
-  console.log(startDate);
   mondayFullDate = startDate;
   day = mondayFullDate.getDay();
   if (day === 0) {
@@ -68,17 +67,23 @@ function setMondayDate(startDate) {
 function setMonthHeaders() {
   mondayMonth = mondayFullDate.getMonth();
   mondayFullYear = mondayFullDate.getFullYear();
-  headerText = `${months[mondayMonth]} ${mondayFullYear}`;
+  headerText1 = `${months[mondayMonth]} ${mondayFullYear}`;
   header1 = document.getElementById("header-month-1");
-  header1.textContent = headerText;
+  header1.textContent = headerText1;
+
+  sundayFullDate = new Date(mondayFullYear, mondayMonth, mondayFullDate.getDate()); // Place holder date
+  sundayFullDate.setDate(sundayFullDate.getDate() + 6);
+  console.log(sundayFullDate);
+  sundayMonth = sundayFullDate.getMonth();
+  sundayYear = sundayFullDate.getFullYear();
+  headerText2 = `${months[sundayMonth]} ${sundayYear}`;
   header2 = document.getElementById("header-month-2");
-  header2.textContent = headerText;
+  header2.textContent = headerText2;
 }
 
 function setWeeklyDates() {
   // Add dates to the days in the weekly lines
   workingDate = mondayFullDate;
-  console.log(startDate);
   for (i = 1; i < 8; i++) {
     const dayId = document.getElementById(`day${i % 7}`);
     currentValue = dayId.textContent;
