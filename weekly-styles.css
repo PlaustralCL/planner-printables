@@ -1,27 +1,11 @@
+h1 {
+  margin-bottom: 0;
+}
 table {
   border-collapse: collapse;
   table-layout: fixed;
 }
 
-td {
-  /*border: 1px solid black;*/
-  /*width: 4in;*/
-  /*border-bottom-color: black;*/
-}
-tr {
-  /*height: 5.2mm;*/
-  /*border: 1px solid black;*/
-  /*border-bottom: 1px solid black;*/
-}
-
-/*
-td:first-child {
-  border-bottom: 1px solid black;
-}
-td:last-child {
-  border-bottom: 1px solid black;
-}
-*/
 
 .weekly-line-large {
   font-weight: bold;
@@ -63,7 +47,8 @@ tr:has(.weekly-line) {
   display: flex;
   justify-content: space-between;
   margin-bottom: 5mm;
-  width: 11in;
+  margin-right: 5mm;
+  width: 10.5in;
 }
 
 
