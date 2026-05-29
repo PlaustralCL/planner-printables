@@ -82,7 +82,10 @@ function setMonthHeaders() {
 
 function setWeeklyDates() {
   // Add dates to the days in the weekly lines
-  workingDate = mondayFullDate;
+  //workingDate = mondayFullDate;
+  workingDate = new Date(mondayFullDate.getFullYear(),
+                         mondayFullDate.getMonth(),
+                         mondayFullDate.getDate());
   for (i = 1; i < 8; i++) {
     const dayId = document.getElementById(`day${i % 7}`);
     currentValue = dayId.textContent;
@@ -93,19 +96,13 @@ function setWeeklyDates() {
 }
 
 function addWeek() {
-  //newStartDate = mondayFullDate;
-  mondayFullDate.setDate(mondayFullDate.getDate() + 6);
-  setMondayDate(mondayFullDate);
+  mondayFullDate.setDate(mondayFullDate.getDate() + 7);
   setMonthHeaders();
   setWeeklyDates();
 }
 
 function subtractWeek() {
-  //newStartDate = mondayFullDate;
-  console.log("starting Monday: ", mondayFullDate);
-  mondayFullDate.setDate(mondayFullDate.getDate() - 8);
-  setMondayDate(mondayFullDate);
-  console.log("new Monday: ", mondayFullDate);
+  mondayFullDate.setDate(mondayFullDate.getDate() - 7);
   setMonthHeaders();
   setWeeklyDates();
 }
