@@ -73,7 +73,6 @@ function setMonthHeaders() {
 
   sundayFullDate = new Date(mondayFullYear, mondayMonth, mondayFullDate.getDate()); // Place holder date
   sundayFullDate.setDate(sundayFullDate.getDate() + 6);
-  console.log(sundayFullDate);
   sundayMonth = sundayFullDate.getMonth();
   sundayYear = sundayFullDate.getFullYear();
   headerText2 = `${months[sundayMonth]} ${sundayYear}`;
@@ -101,7 +100,16 @@ function addWeek() {
   setWeeklyDates();
 }
 
-function subtractWeek() {}
+function subtractWeek() {
+  //newStartDate = mondayFullDate;
+  console.log("starting Monday: ", mondayFullDate);
+  mondayFullDate.setDate(mondayFullDate.getDate() - 8);
+  setMondayDate(mondayFullDate);
+  console.log("new Monday: ", mondayFullDate);
+  setMonthHeaders();
+  setWeeklyDates();
+}
+
 
 window.onload = function () {
   //console.log("loaded!");
