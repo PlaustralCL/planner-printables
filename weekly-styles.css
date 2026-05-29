@@ -73,6 +73,8 @@ tr:has(.weekly-line) {
   text-align: center;
 }
 
+
+
 @media print {
   body {
     font-size: 12pt;
@@ -80,4 +82,10 @@ tr:has(.weekly-line) {
     margin: 0.25in;
     color: #000;
   }
+
+    .no-print {
+    display: none !important;
+  }
+
+
 }
