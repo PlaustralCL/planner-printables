@@ -55,10 +55,9 @@ function populateMonthDates(calendarId) {
         currentCell.textContent = "";
       }
 
-      sundayFullDate = new Date(year, month, mondayFullDate.getDate());
-      sundayFullDate.setDate(mondayFullDate.getDate() + 7);
+      sundayFullDate = new Date(mondayFullDate.getFullYear(), mondayFullDate.getMonth(), mondayFullDate.getDate());
+      sundayFullDate.setDate(sundayFullDate.getDate() + 7);
       if (currentCell.textContent != "" && workingDate > mondayFullDate && workingDate <= sundayFullDate) {
-        console.log(mondayFullDate);
         currentCell.classList.add("current-week");
       } else {
         currentCell.classList.remove("current-week");

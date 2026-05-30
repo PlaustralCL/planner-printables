@@ -22,8 +22,8 @@ table {
 }
 
 .current-week {
-  /*background-color: #f0f0f0;*/
-  background-color: aquamarine;
+  background-color: #ebebeb;
+  /*background-color: aquamarine;*/
 }
 
 tr:has(.weekly-line) {
