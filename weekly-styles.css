@@ -9,7 +9,7 @@ table {
 
 .weekly-line-large {
   font-weight: bold;
-  height: 10mm;
+  height: 8mm;
 }
 
 .weekly-line:first-child {
@@ -33,12 +33,8 @@ tr:has(.weekly-line) {
 }
 
 .mini-cal {
-  /*border: 1px solid black;*/
-  /*
-  width: 25mm;
-  height: 25mm;
-  */
-  font-size: 12px;
+
+  font-size: 11px;
   text-align: center;
   /*border: 1px solid black;*/
 }
@@ -46,7 +42,7 @@ tr:has(.weekly-line) {
 .container {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 5mm;
+  /*margin-bottom: 5mm;*/
   margin-right: 5mm;
   width: 10.5in;
 }
