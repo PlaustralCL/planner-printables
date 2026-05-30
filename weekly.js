@@ -50,8 +50,18 @@ function populateMonthDates(calendarId) {
       if (month === workingDate.getMonth() && workingDate.getDay() === cell) {
         currentCell.textContent = workingDate.getDate();
         workingDate.setDate(workingDate.getDate() + 1);
+        //currentCell.classList.add("current-week");
       } else {
         currentCell.textContent = "";
+      }
+
+      sundayFullDate = new Date(year, month, mondayFullDate.getDate());
+      sundayFullDate.setDate(mondayFullDate.getDate() + 7);
+      if (currentCell.textContent != "" && workingDate > mondayFullDate && workingDate <= sundayFullDate) {
+        console.log(mondayFullDate);
+        currentCell.classList.add("current-week");
+      } else {
+        currentCell.classList.remove("current-week");
       }
     }
   }

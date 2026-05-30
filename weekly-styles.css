@@ -21,6 +21,11 @@ table {
   border-bottom: 1px solid black;
 }
 
+.current-week {
+  /*background-color: #f0f0f0;*/
+  background-color: aquamarine;
+}
+
 tr:has(.weekly-line) {
   height: 5.2mm;
 }
