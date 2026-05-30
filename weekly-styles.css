@@ -73,5 +73,9 @@ tr:has(.weekly-line) {
     display: none !important;
   }
 
+  .current-week {
+    print-color-adjust: exact;
+  }
+
 
 }
