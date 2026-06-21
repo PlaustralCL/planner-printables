@@ -41,6 +41,7 @@ tr:has(.weekly-line) {
 
   font-size: 11px;
   text-align: center;
+  margin: 0 1rem;
   /*border: 1px solid black;*/
 }
 
@@ -52,6 +53,20 @@ tr:has(.weekly-line) {
   width: 10.5in;
 }
 
+.header__cal-container {
+  display: flex;
+  
+}
+
+.header__notes-table {
+  margin-top: 1rem;
+  width: 2.75in;
+}
+
+.header__notes-row {
+  border-bottom: 1px solid black;
+  height: 1.1rem;
+}
 
 
 .month-container {
