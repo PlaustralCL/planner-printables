@@ -6,7 +6,6 @@ table {
   table-layout: fixed;
 }
 
-
 .weekly-line-large {
   font-weight: bold;
   height: 8mm;
@@ -14,7 +13,6 @@ table {
 
 .weekly-line:first-child {
   border-bottom: 1px solid black;
-  /*height: 5.2mm;*/
 }
 
 .weekly-line:last-child {
@@ -23,7 +21,6 @@ table {
 
 .current-week {
   background-color: #ebebeb;
-  /*background-color: aquamarine;*/
 }
 
 tr:has(.weekly-line) {
@@ -38,24 +35,20 @@ tr:has(.weekly-line) {
 }
 
 .mini-cal {
-
   font-size: 11px;
   text-align: center;
   margin: 0 1rem;
-  /*border: 1px solid black;*/
 }
 
 .container {
   display: flex;
   justify-content: space-between;
-  /*margin-bottom: 5mm;*/
   margin-right: 5mm;
   width: 10.5in;
 }
 
 .header__cal-container {
   display: flex;
-  
 }
 
 .header__notes-table {
@@ -68,13 +61,10 @@ tr:has(.weekly-line) {
   height: 1.1rem;
 }
 
-
 .month-container {
   max-width: 4rem;
   text-align: center;
 }
-
-
 
 @media print {
   body {
@@ -84,13 +74,11 @@ tr:has(.weekly-line) {
     color: #000;
   }
 
-    .no-print {
+  .no-print {
     display: none !important;
   }
 
   .current-week {
     print-color-adjust: exact;
   }
-
-
 }
