@@ -32,10 +32,14 @@ function buildMonthTable(calendarId) {
 }
 
 function populateMonthDates(calendarId) {
-  const year = mondayFullDate.getFullYear();
+  let year = mondayFullDate.getFullYear();
   let month = mondayFullDate.getMonth();
   if (calendarId === "calendar2") {
     month += 1;
+    if (month == 12) {
+      month = 0;
+      year = year + 1;
+    }
   }
   const startDate = new Date(year, month, 1);
   console.log(`${calendarId}: ${month}`);
@@ -128,7 +132,7 @@ window.onload = function () {
   //buildMonthTable();
   //populateMonthDates();
 
-  startDate = new Date(2026, 4, 22); // 5/22/26
+  startDate = new Date(2026, 11, 22); // 5/22/26
 
   setMondayDate(startDate);
   setMonthHeaders();
