@@ -39,6 +39,9 @@ function populateMonthDates(date) {
         workingDate.setDate(workingDate.getDate() + 1);
       } else {
         currentCell.textContent = "";
+        if (cell == 0 && workingDate.getDate >= 28) {
+          currentCell.classList.add('hide');
+        }
       }
     }
   }

@@ -1,23 +1,15 @@
-html {
+/*html {
   max-width: 50%;
   margin: auto;
-}
+}*/
 
 .year-title {
   text-align: center;
 }
 
-.year-container {
-  column-gap: 20px;
-  display: grid;
-  grid-template-columns: repeat(3, fit-content(150px));
-  justify-items: center;
-  width: 475px;
-  padding: 10px;
-  margin: auto;
-}
 .month-container {
-  text-align: center;
+  /*text-align: center;*/
+  margin-bottom: 2rem;
 }
 .button-container {
   text-align: center;
@@ -30,4 +22,48 @@ html {
 button {
   font-size: 1.2rem;
   margin: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    empty-cells: hide;
+}
+
+td {
+    border: 1px solid black;
+    font-size: 20px;
+    text-align: right;
+    vertical-align: top;
+}
+
+th {
+    font-size: 24px;
+}
+
+td {
+    height: 1.0in;
+    width: 1.5in;
+}
+
+tbody tr:not(:has(td:not(:empty))) {
+  display: none;
+}
+
+.hide {
+    display: none;
+}
+
+
+@media print {
+    @page {
+        size: letter landscape;
+    }
+
+    .month-container {
+        break-after: page;
+    }
+
+    button {
+        display: none;
+    }
 }
