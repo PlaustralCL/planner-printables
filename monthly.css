@@ -1,0 +1,33 @@
+html {
+  max-width: 50%;
+  margin: auto;
+}
+
+.year-title {
+  text-align: center;
+}
+
+.year-container {
+  column-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, fit-content(150px));
+  justify-items: center;
+  width: 475px;
+  padding: 10px;
+  margin: auto;
+}
+.month-container {
+  text-align: center;
+}
+.button-container {
+  text-align: center;
+}
+
+.today {
+  background-color: pink;
+}
+
+button {
+  font-size: 1.2rem;
+  margin: 10px;
+}
