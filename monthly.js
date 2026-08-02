@@ -36,17 +36,6 @@ function populateMonthDates(date) {
       const currentCell = document.getElementById(`cell${month}${row}${cell}`);
       if (month === workingDate.getMonth() && workingDate.getDay() === cell) {
         currentCell.textContent = workingDate.getDate();
-        // highlight the current date
-        if (
-          workingDate.getFullYear() === today.getFullYear() &&
-          workingDate.getMonth() === today.getMonth() &&
-          workingDate.getDate() === today.getDate()
-        ) {
-          currentCell.classList.add("today");
-        } else {
-          currentCell.classList.remove("today");
-        }
-
         workingDate.setDate(workingDate.getDate() + 1);
       } else {
         currentCell.textContent = "";
