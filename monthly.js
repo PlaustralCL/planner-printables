@@ -1,6 +1,29 @@
+const date = new Date();
+let year = date.getFullYear();
+
+const daysInMonth = {
+  0: 31,
+  1: 28,
+  2: 31,
+  3: 30,
+  4: 31,
+  5: 30,
+  6: 31,
+  7: 31,
+  8: 30,
+  9: 31,
+  10: 30,
+  11: 31
+};
+
+ 
+
+
+
 /* Build the table that will hold the dates for a month.
  * The table will have 6 rows to ensure there are enough, but
  * only 7 days are needed since that is constant.
+ * @parame monthNum {int} the number corresponding to the month. January is 0.
  */
 function buildMonthTable(monthNum) {
   const tableBodyId = `month${monthNum}-body`;
@@ -8,6 +31,10 @@ function buildMonthTable(monthNum) {
   for (let row = 1; row <= 6; row++) {
     const newRow = document.createElement("tr");
     newRow.id = `row${month}${row}`;
+    if (daysInMonth[monthNum] == 31) {
+      newRow.classList.add('long-month-tr');
+    }
+    
     for (let col = 0; col < 7; col++) {
       const newCell = document.createElement("td");
       const cellId = `cell${month}${row}${col}`;
@@ -19,12 +46,13 @@ function buildMonthTable(monthNum) {
   }
 }
 
+/* Add the four-digit year to the month names.
+ * @parame monthNum {int} the number corresponding to the month. January is 0.
+*/
 function addYearToMonthName(monthNum) {
-  const date = new Date();
-  const year = date.getFullYear();
   const monthNameId = `month${monthNum}-name`;
   const monthNameElement = document.getElementById(monthNameId);
-  const monthName = monthNameElement.textContent;
+  const monthName = monthNameElement.textContent.split(" ")[0];
   monthNameElement.textContent = `${monthName} ${year}`;  
 }
 
@@ -68,13 +96,21 @@ function populateYear(year) {
 }
 
 function addYear() {
-  const currentYear = document.getElementById("year-title").textContent;
-  populateYear(Number(currentYear) + 1);
+  year += 1;
+  console.log(year);
+  for (month = 0; month < 12; month++) {
+    populateMonthDates(new Date(year, month, 1));
+    addYearToMonthName(month);    
+  }
 }
 
 function subtractYear() {
-  const currentYear = document.getElementById("year-title").textContent;
-  populateYear(Number(currentYear) - 1);
+  year -= 1;
+  console.log(year);
+  for (month = 0; month < 12; month++) {
+    populateMonthDates(new Date(year, month, 1));
+    addYearToMonthName(month);    
+  }
 }
 
 window.onload = function () {
