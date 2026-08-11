@@ -1,4 +1,4 @@
-  /* Build the table that will hold the dates for a month.
+/* Build the table that will hold the dates for a month.
  * The table will have 6 rows to ensure there are enough, but
  * only 7 days are needed since that is constant.
  */
@@ -17,6 +17,15 @@ function buildMonthTable(monthNum) {
     }
     tableBody.append(newRow);
   }
+}
+
+function addYearToMonthName(monthNum) {
+  const date = new Date();
+  const year = date.getFullYear();
+  const monthNameId = `month${monthNum}-name`;
+  const monthNameElement = document.getElementById(monthNameId);
+  const monthName = monthNameElement.textContent;
+  monthNameElement.textContent = `${monthName} ${year}`;  
 }
 
 /* Add the dates to a month table. If the date is the current day,
@@ -71,9 +80,10 @@ function subtractYear() {
 window.onload = function () {
   const date = new Date();
   const year = date.getFullYear();
-  const yearTitle = document.getElementById("year-title");
-  yearTitle.textContent = year;
+  // const yearTitle = document.getElementById("year-title");
+  // yearTitle.textContent = year;
   for (month = 0; month < 12; month++) {
+    addYearToMonthName(month);
     buildMonthTable(month);
     populateMonthDates(new Date(year, month, 1));
   }
