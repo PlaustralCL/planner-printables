@@ -16,11 +16,7 @@ const daysInMonth = {
   11: 31
 };
 
- 
-
-
-
-/* Build the table that will hold the dates for a month.
+ /* Build the table that will hold the dates for a month.
  * The table will have 6 rows to ensure there are enough, but
  * only 7 days are needed since that is constant.
  * @parame monthNum {int} the number corresponding to the month. January is 0.
@@ -31,9 +27,6 @@ function buildMonthTable(monthNum) {
   for (let row = 1; row <= 6; row++) {
     const newRow = document.createElement("tr");
     newRow.id = `row${month}${row}`;
-    if (daysInMonth[monthNum] == 31) {
-      newRow.classList.add('long-month-tr');
-    }
     
     for (let col = 0; col < 7; col++) {
       const newCell = document.createElement("td");
@@ -62,7 +55,6 @@ function addYearToMonthName(monthNum) {
  * This will be used to find the appropriate year and month.
  */
 function populateMonthDates(date) {
-  const today = new Date();
   const year = date.getFullYear();
   const month = date.getMonth();
   const startDate = new Date(year, month, 1);
@@ -84,6 +76,28 @@ function populateMonthDates(date) {
   }
 }
 
+/*
+ * Add a class to change the height of the week row based on the
+ * number of rows in the month.
+ */
+function sizeWeeklyRows(month) {
+  for (let row = 1; row <= 6; row++) {
+    rowId = `row${month}${row}`;
+    rowElement = document.getElementById(`row${month}${row}`);
+    const monthStartDate = new Date(year, month, 1);
+    const monthStartDay = monthStartDate.getDay();
+
+    rowElement.classList.remove('long-month-tr');
+    rowElement.classList.remove('short-month-tr');
+    if ((daysInMonth[month] == 31 && (monthStartDay == 5 ||  monthStartDay == 6)) ||
+        (daysInMonth[month] == 30 && monthStartDay == 6)) {
+      rowElement.classList.add('long-month-tr');
+    } else {
+      rowElement.classList.add('short-month-tr')
+    }
+  }
+}
+
 /* Fills in the dates for the entire year
  * @param year {string} the year that will be used for all the dates
  */
@@ -100,6 +114,7 @@ function addYear() {
   console.log(year);
   for (month = 0; month < 12; month++) {
     populateMonthDates(new Date(year, month, 1));
+    sizeWeeklyRows(month);
     addYearToMonthName(month);    
   }
 }
@@ -109,6 +124,7 @@ function subtractYear() {
   console.log(year);
   for (month = 0; month < 12; month++) {
     populateMonthDates(new Date(year, month, 1));
+    sizeWeeklyRows(month);
     addYearToMonthName(month);    
   }
 }
@@ -116,11 +132,10 @@ function subtractYear() {
 window.onload = function () {
   const date = new Date();
   const year = date.getFullYear();
-  // const yearTitle = document.getElementById("year-title");
-  // yearTitle.textContent = year;
   for (month = 0; month < 12; month++) {
     addYearToMonthName(month);
     buildMonthTable(month);
     populateMonthDates(new Date(year, month, 1));
+    sizeWeeklyRows(month);
   }
 };
