@@ -49,9 +49,8 @@ function addYearToMonthName(monthNum) {
   monthNameElement.textContent = `${monthName} ${year}`;  
 }
 
-/* Add the dates to a month table. If the date is the current day,
- * the date is hightlighted.
- * @param date {string} is a date representing a day in the month.
+/* Add the dates to a month table. 
+ * @param date {date} is a date representing a day in the month.
  * This will be used to find the appropriate year and month.
  */
 function populateMonthDates(date) {
@@ -63,17 +62,45 @@ function populateMonthDates(date) {
   for (let row = 1; row <= 6; row++) {
     for (let cell = 0; cell < 7; cell++) {
       const currentCell = document.getElementById(`cell${month}${row}${cell}`);
-      if (month === workingDate.getMonth() && workingDate.getDay() === cell) {
-        currentCell.textContent = workingDate.getDate();
+      currentCell.textContent = "";
+      if (month === workingDate.getMonth() && workingDate.getDay() === cell) {        
+        // Add the date to the cell
+        const dateSpan = document.createElement("span");
+        dateSpan.textContent = workingDate.getDate();
+        currentCell.append(dateSpan);        
+        // Check for holidays. If the day is a holiday, add it to the cell.
+        const holidayName = getHolidayName(workingDate);      
+        if (holidayName != "") {
+          const holidaySpan = document.createElement("span");
+          holidaySpan.textContent = holidayName;
+          holidaySpan.classList.add("holiday-name");
+          currentCell.append(holidaySpan); 
+        }
         workingDate.setDate(workingDate.getDate() + 1);
       } else {
-        currentCell.textContent = "";
-        if (cell == 0 && workingDate.getDate >= 28) {
-          currentCell.classList.add('hide');
-        }
+          if (cell == 0 && workingDate.getDate >= 28) {
+            currentCell.classList.add('hide');
+          }
       }
     }
   }
+}
+
+/* Find the holiday, if any, associated with working date.
+ * The holidays are stored in holidays.js.
+ * @param workingDate {Date} the date to check for holiday
+*/
+function getHolidayName(workingDate) {
+  const fullYear = workingDate.getFullYear();
+  // Index months from 1, not 0. This makes it easier to work with actual dates.
+  const reIndexedMonth = workingDate.getMonth() + 1; 
+  const dayOfMonth = workingDate.getDate();
+  const dateKey = `${fullYear}-${reIndexedMonth}-${dayOfMonth}`;
+  if (holidays.hasOwnProperty(dateKey)) {
+    return holidays[dateKey];
+  }
+
+  return "";
 }
 
 /*

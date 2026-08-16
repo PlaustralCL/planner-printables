@@ -56,6 +56,14 @@ tbody tr:not(:has(td:not(:empty))) {
   display: none;
 }
 
+.holiday-name {
+  display: inline-block;
+  font-size: 12px;
+  margin-left: 10px;
+  text-align: right;
+  vertical-align: top;
+}
+
 .hide {
     display: none;
 }
