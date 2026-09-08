@@ -1,4 +1,5 @@
 h1 {
+  color: #18181b;
   margin-bottom: 0;
 }
 table {
@@ -6,22 +7,25 @@ table {
   table-layout: fixed;
 }
 
+
 .weekly-line-large {
+  color: #18181b;
   font-weight: bold;
   height: 8mm;
 }
 
 .weekly-line:first-child {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .weekly-line:last-child {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .current-week {
-  background-color: #ebebeb;
+  background-color: #dbdbdb; /* #ebebeb */
 }
+
 
 tr:has(.weekly-line) {
   height: 5.2mm;
@@ -35,6 +39,7 @@ tr:has(.weekly-line) {
 }
 
 .mini-cal {
+  color: #18181b;
   font-size: 11px;
   text-align: center;
   margin: 0 1rem;
@@ -57,7 +62,7 @@ tr:has(.weekly-line) {
 }
 
 .header__notes-row {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #e0e0e0;
   height: 1.1rem;
 }
 
