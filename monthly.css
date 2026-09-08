@@ -3,6 +3,10 @@
   margin: auto;
 }*/
 
+html {
+    color: #18181b;
+}
+
 .year-title {
   text-align: center;
 }
@@ -15,9 +19,6 @@
   text-align: center;
 }
 
-.today {
-  background-color: pink;
-}
 
 button {
   font-size: 1.2rem;
@@ -30,7 +31,7 @@ table {
 }
 
 td {
-    border: 1px solid black;
+    border: 1px solid #52525b    ;
     font-size: 20px;
     padding: 5px;
     text-align: left;
@@ -45,11 +46,11 @@ th {
 }
 
 .long-month-tr {
-  height: 1.0in;
+  height: 1.16in;
 }
 
 .short-month-tr {
-  height: 1.2in;
+  height: 1.4in;
 }
 
 tbody tr:not(:has(td:not(:empty))) {
@@ -71,7 +72,10 @@ tbody tr:not(:has(td:not(:empty))) {
 
 @media print {
     @page {
+        font-size: 12pt;
         size: letter landscape;
+        margin: 0.25in;
+        color: #000;
     }
 
     .month-container {
