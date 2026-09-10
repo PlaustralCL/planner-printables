@@ -1,5 +1,5 @@
 h1 {
-  color: #18181b;
+  color: #343a40;
   margin-bottom: 0;
 }
 table {
@@ -9,7 +9,7 @@ table {
 
 
 .weekly-line-large {
-  color: #18181b;
+  color: #343a40;
   font-weight: bold;
   height: 8mm;
 }
@@ -39,7 +39,7 @@ tr:has(.weekly-line) {
 }
 
 .mini-cal {
-  color: #18181b;
+  color: #343a40;
   font-size: 11px;
   text-align: center;
   margin: 0 1rem;

@@ -4,7 +4,7 @@
 }*/
 
 html {
-    color: #18181b;
+    color: #343a40;
 }
 
 .year-title {
@@ -31,7 +31,7 @@ table {
 }
 
 td {
-    border: 1px solid #52525b    ;
+    border: 1px solid #727272    ;
     font-size: 20px;
     padding: 5px;
     text-align: left;
