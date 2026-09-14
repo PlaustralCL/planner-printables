@@ -75,7 +75,7 @@ tr:has(.weekly-line) {
   body {
     font-size: 12pt;
     size: letter landscape;
-    margin: 0.25in;
+    margin: 0.4in 0.2in 0in 0.2in;
     color: #000;
   }
 
