@@ -41,7 +41,8 @@ td {
 
 th {
     font-size: 24px;
-    height: 0.5in;
+    height: 0.3in;
+    padding-bottom: 0.1in;
     vertical-align: bottom;
 }
 

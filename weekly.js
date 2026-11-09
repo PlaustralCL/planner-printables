@@ -42,7 +42,7 @@ function populateMonthDates(calendarId) {
     }
   }
   const startDate = new Date(year, month, 1);
-  console.log(`${calendarId}: ${month}`);
+  // console.log(`${calendarId}: ${month}`);
 
   const monthHeader = document.getElementById(`${calendarId}-header`);
   monthHeader.textContent = startDate.toLocaleString("default", { month: "long" });
@@ -80,6 +80,11 @@ function setMondayDate(startDate) {
   }
 }
 
+function setPageTitle() {
+  title = `WK${mondayFullDate.getFullYear()}${String(mondayFullDate.getMonth() + 1).padStart(2, '0')}${String(mondayFullDate.getDate()).padStart(2, '0')}`
+  document.title = title
+}
+
 function setMonthHeaders() {
   mondayMonth = mondayFullDate.getMonth();
   mondayFullYear = mondayFullDate.getFullYear();
@@ -111,6 +116,7 @@ function setWeeklyDates() {
 
 function addWeek() {
   mondayFullDate.setDate(mondayFullDate.getDate() + 7);
+  setPageTitle();
   setMonthHeaders();
   setWeeklyDates();
 
@@ -120,6 +126,7 @@ function addWeek() {
 
 function subtractWeek() {
   mondayFullDate.setDate(mondayFullDate.getDate() - 7);
+  setPageTitle();
   setMonthHeaders();
   setWeeklyDates();
 
@@ -132,9 +139,10 @@ window.onload = function () {
   //buildMonthTable();
   //populateMonthDates();
 
-  startDate = new Date(2026, 11, 22); // 5/22/26
+  startDate = new Date(); // Use the current date as the starting date
 
   setMondayDate(startDate);
+  setPageTitle();
   setMonthHeaders();
   setWeeklyDates();
 
